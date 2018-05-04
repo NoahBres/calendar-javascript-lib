@@ -2,8 +2,37 @@
 
 // Rewriting from ground up
 class Calendar {
-
+	constructor(id = "calendarContainer", options = {}) {
+		this.id = id;
+		this.options = {
+			size: options.size || 0,
+			colors: {
+				primary: options.colors.primary || "#ffc107",
+				primaryDark: options.colors.primaryDark || "#ffa000",
+				text: options.colors.text || "#fff",
+				textDark: options.colors.textDark || "#ffecb3"
+			},
+			days: options.days || [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",  "Saturday" ],
+			months: options.days || [ "January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+			showIndicator:  options.showIndicator || false,
+			placeholder: options.placeholder || "<span>Custom Placeholder</span>"
+		};
+	}
 }
+
+class Event {
+	constructor(date, startTime, endTime, title = "", description = "") {
+		this.date = date;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.title = title;
+		this.desciption = description;
+	}
+}
+
+Calendar.SMALL = 0;
+Calendar.MEDIUM = 0;
+Calendar.LARGE = 0;
 
 /* 
 function Calendar(id, size, labelSettings, colors, options) {
